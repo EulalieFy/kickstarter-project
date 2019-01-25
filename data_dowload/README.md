@@ -3,7 +3,7 @@
 We are using data scrapped from the website 'www.kickstarter.com', made available by  webrobots (https://webrobots.io/kickstarter-datasets/) and 
 hosted on a AWS S3 instance. 
 
-![ScreenShot](data_dowload/website.png)
+![ScreenShot](website.png)
 
 Hence, we're using *boto3* packages on Python so as to download it manually and store it directly on a local machine without having to store it on a cloud.
 Once the data is downloaded, we unzip the dataframe and concatenante all the cvs at our disposal into one.
