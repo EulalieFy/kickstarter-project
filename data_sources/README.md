@@ -39,3 +39,14 @@ Similarly, we use the *newspaper* python package in order to scrap the text from
 
 ![ScreenShot3](ex_description.png)
 
+Once we merged all the dataframes, we select, clean a bit and process variables we'll consider for the task in the *dataframe_and_feature_processing* python file. More specifically, we will use data relative to : 
+
+- **the project itself** : name, short_description, main_category, category
+- **important dates** : created_at, launched_at, state_changed_at, deadline
+- **the place and the currency** : country, city, state_location, static_usd_rate, currency
+- **the creator** : creator_id, creator_name
+- **objectif and Pledge funds** : goal, pledged, achieved (%), usd_pledged
+- **special treatment** : project_we_love (tag from KickStater's preferenced project)
+- **additional data** : image_available, description_available
+ 
+
