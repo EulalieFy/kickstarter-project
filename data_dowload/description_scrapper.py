@@ -1,14 +1,21 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri Jan 25 16:48:00 2019
+Script that scraps text descriptions from the project's home page on 
+Kickstarter ans save it in a txt file 
 
-@author: damie
 """
 
 import os
 import re
 import newspaper
 from tqdm import tqdm
+
+#Make sure, the data folder already exists
+assert os.path.exists('./data')
+
+# If the Image folder doesn't exists, we create one
+if os.path.exists('./data/Description') == False : 
+    os.mkdir('./data/Description')
 
 
 def get_articles(url):
@@ -20,11 +27,10 @@ def get_articles(url):
     art.parse()
     return(art.text)
     
-DEFAULT_PATH = './data/Description'
+PATH_TO_TEXT = './data/Description'
 
 def download_description(row):
-    
-    if os.path.exists(os.path.join(DEFAULT_PATH,'{}.txt'.format(row['id']))) == True:
+    if os.path.exists(os.path.join(PATH_TO_TEXT,'{}.txt'.format(row['id']))) == True:
         print('Already Downloaded')
         return
 
@@ -32,13 +38,16 @@ def download_description(row):
         url = re.findall(r'(?<="project":")[^"]*', row['urls'])[0]
         article = get_articles(url)
         #print(row['id'])
-        with open(os.path.join(DEFAULT_PATH, '{}.txt'.format(row['id'])), 'w') as f:
+        with open(os.path.join(PATH_TO_TEXT, '{}.txt'.format(row['id'])), 'w') as f:
             f.write(article)
             f.close()
     except :
         print('Error while downloading ID:', row['id'], 'url', url)
         
 def download_from_dataframe(df):
+    
+    ''' Iterate on the rows of the dataframe to get most descriptions '''
+    
     for row in tqdm(df.iterrows()):
         download_description(row[1])
     
