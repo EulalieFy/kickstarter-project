@@ -3,7 +3,7 @@
 We are using data scrapped from the website 'www.kickstarter.com', made available by  webrobots (https://webrobots.io/kickstarter-datasets/) and 
 hosted on a AWS S3 instance. 
 
-![ScreenShot](website.png)
+![ScreenShot](screenshots/website.png)
 
 Hence, we're using *boto3* packages on Python so as to download it manually and store it directly on a local machine without having to store it on a cloud.
 Once the data is downloaded, we unzip the dataframe and concatenante all the cvs at our disposal into one.
@@ -26,7 +26,7 @@ download_from_pandas(df)
 
 By default, it creates a repository ./data/Image where it will store images with unique project ID
 
-![ScreenShot2](ex_images.png)
+![ScreenShot2](screenshots/ex_images.png)
 
 ### Descriptions :
 
@@ -37,7 +37,7 @@ download_from_pandas(df)
 ```
 Similarly, we use the *newspaper* python package in order to scrap the text from the project home page on kiskstarter.com
 
-![ScreenShot3](ex_description.png)
+![ScreenShot3](screenshots/ex_description.png)
 
 ### Features
 
