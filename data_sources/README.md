@@ -1,5 +1,24 @@
 # Data Downloader
 
+If you just want to download the final datasets, two pairs of data-label csv' for the training part and for the testing part, you only need to run the following command line : 
+
+```cmd 
+
+python data_download.py
+
+```
+
+It will automatically download the four datasets into a './data/' folder. You can then read it in python with pandas, for instance, with :
+```python
+
+import pandas as pd
+X_train = pd.read_csv('./data/data_train.csv')
+```
+
+If you want to know more about the story behind this data, let's have a quick read of the rest of this README.md :
+
+# Sources
+
 We are using data scrapped from the website 'www.kickstarter.com', made available by  webrobots (https://webrobots.io/kickstarter-datasets/) and 
 hosted on a AWS S3 instance. 
 
