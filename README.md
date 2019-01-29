@@ -13,3 +13,10 @@ To evaluate the impact of such an use case: the KPI we will use is the percentag
 
 
 Pour améliorer la prédiction, Il aurait été intéressant d’avoir les descriptions des projets et des infos sur le lanceur de projets : sur ses anciens succès ...
+
+
+### To download the data :
+ ```cmd 
+ 
+ python data_download.py 
+ ```
