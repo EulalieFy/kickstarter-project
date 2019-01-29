@@ -11,9 +11,9 @@ The file_ids must refer to files with 'public' option in 'share' parameter
 """
 
 
-file_ids = ['1ef8FfQVnL7tgZcUE4deacqPZZpGRDFs2']
+file_ids = ['1kZVi3f6pHq3wyt4FpR_8-c4wwYgykL6o']
 
-destinations = ['./data/test.csv']
+destinations = ['./data/data.csv']
 
 for file_id, destination in zip(file_ids, destinations):
 
