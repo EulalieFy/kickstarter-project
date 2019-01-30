@@ -79,9 +79,12 @@ class Precision(ClassifierBaseScoreType):
         self.name = name + '_' + label
         self.precision = precision
         self.label = label
+        self.dic = {'Failure':0,
+                    'Sucess':1,
+                    'Higher Sucess':2}
 
     def __call__(self, y_true, y_pred):
-        return precision_score(y_true, y_pred, average=None)[self.label]
+        return precision_score(y_true, y_pred, average=None)[self.dic[self.label]]
     
 class Recall(ClassifierBaseScoreType):
 
@@ -89,9 +92,12 @@ class Recall(ClassifierBaseScoreType):
         self.name = name + '_' + label
         self.precision = precision
         self.label = label
+        self.dic = {'Failure':0,
+                    'Sucess':1,
+                    'Higher Sucess':2}
 
     def __call__(self, y_true, y_pred):
-        recall = recall_score(y_true, y_pred, average=None)[self.label]
+        recall = recall_score(y_true, y_pred, average=None)[self.dic[self.label]]
         return recall
 
 class Shortfall(ClassifierBaseScoreType):
