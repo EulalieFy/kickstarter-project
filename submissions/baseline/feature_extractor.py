@@ -175,6 +175,8 @@ class FeatureExtractor(object):
         description_embeddings = pd.DataFrame(description_matrix)
         description_embeddings = description_embeddings.add_prefix('desc_')
         
+        name_embeddings.set_index(data.index, inplace=True)
+        description_embeddings.set_index(data.index, inplace=True)
         data = pd.concat([data, name_embeddings], axis=1)
         data = pd.concat([data, description_embeddings], axis = 1)
         
