@@ -88,9 +88,9 @@ class FeatureExtractor(object):
         data['month'] = [d.month for d in data['launched_date']]
         data['day'] = [d.day for d in data['launched_date']]
         
-        #Drop NaN in name and description and reset index
-        data = data.dropna(subset=['name','short_description'])
-        data.index = np.arange(0, len(data))
+        #Change NaN in name and description and reset index
+        data.short_description = data.short_description.fillna('not available')
+        data.name = data.name.fillna('not available')
         
         # Length of name and description
         data['name_length'] = [len(name) for name in data['name']]
