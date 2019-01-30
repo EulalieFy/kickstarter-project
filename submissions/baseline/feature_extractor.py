@@ -1,4 +1,6 @@
 
+
+
 import pandas as pd
 import numpy as np
 import re
@@ -167,8 +169,6 @@ class FeatureExtractor(object):
                 description_matrix[i,]=self.model.wv[cleaned_description[i]].sum(0)/len(cleaned_description[i]) 
             except:
                 pass
-       
-                
        
         name_embeddings = pd.DataFrame(name_matrix)
         name_embeddings = name_embeddings.add_prefix('name_')

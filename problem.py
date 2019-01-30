@@ -9,6 +9,7 @@ from math import sqrt
 import warnings
 import pandas as pd
 import itertools
+from collections import Counter
 
 from sklearn.model_selection import KFold
 from sklearn.metrics import precision_score, recall_score, confusion_matrix
@@ -59,7 +60,6 @@ class FeatureExtractorClassifier(object):
         return fe, clf
 
     def test_submission(self, trained_model, X_df):
-        print('TEST SUBMIT')
         fe, clf = trained_model
         X_test_array = self.feature_extractor_workflow.test_submission(
             fe, X_df)
@@ -80,8 +80,8 @@ class Precision(ClassifierBaseScoreType):
         self.precision = precision
         self.label = label
         self.dic = {'Failure':0,
-                    'Sucess':1,
-                    'Higher Sucess':2}
+                    'Success':1,
+                    'Higher Success':2}
 
     def __call__(self, y_true, y_pred):
         return precision_score(y_true, y_pred, average=None)[self.dic[self.label]]
@@ -93,8 +93,8 @@ class Recall(ClassifierBaseScoreType):
         self.precision = precision
         self.label = label
         self.dic = {'Failure':0,
-                    'Sucess':1,
-                    'Higher Sucess':2}
+                    'Success':1,
+                    'Higher Success':2}
 
     def __call__(self, y_true, y_pred):
         recall = recall_score(y_true, y_pred, average=None)[self.dic[self.label]]
@@ -109,17 +109,21 @@ class Shortfall(ClassifierBaseScoreType):
     def __call__(self, y_true, y_pred):
         cm = confusion_matrix(y_true, y_pred)
         #i (true), j (pred)
-        type1 = cm[0,1] +cm[0,2]
+        type1 = cm[0,1] + cm[0,2]
         type2_s = cm[1,0] 
         type2_hs = cm[2,0]
         type3 = cm[1,2] 
         type4 = cm[1,2]
         
-        loss = 0*type1 + 0.05*0.2* type2_s +\
-            0.05*0.4*type2_hs + 0.05*type3 +\
-             0.05*0.2*type4
+        loss = 0 * type1 + 0.05 * 0.2 * type2_s +\
+            0.05 * 0.4 * type2_hs + 0.05 * type3 +\
+             0.05 * 0.2 * type4
+
+        c = Counter(y_true)
+
+        denom = c[1] * 0.05  + 1.2 * 0.05 * c[2]
         
-        return loss
+        return loss/denom
 
     
 # Scores Types to print
@@ -131,7 +135,7 @@ score_types = [
     #F1_score w_FScore(),
     Recall(label='Failure'),
     Recall(label='Success'),
-    Recall(label='Higher Sucess'),
+    Recall(label='Higher Success'),
     Precision(label='Failure'),
     Precision(label='Success'),
     Precision(label='Higher Success'),
@@ -146,7 +150,7 @@ def get_cv(X, y):
     # up to 10 fold cross-validation based on 5 splits, using two parts for
     # testing in each fold
     n_splits = 5
-    cv = KFold(n_splits=n_splits, shuffle=True, random_state=42)
+    cv = KFold(n_splits=n_splits, shuffle=True)
     splits = list(cv.split(X, y))
     
     # get all combinaison of folds
@@ -155,9 +159,6 @@ def get_cv(X, y):
     combinaison = list(set(combinaison))
     combinaison = [(l[:int(n_splits*0.667)], l[int(n_splits*0.667):]) for l in combinaison]
     for ps in combinaison[:k]:
-         
-        print(y[np.hstack([splits[p][1] for p in ps[0]])].shape)
-        print(y[np.hstack([splits[p][1] for p in ps[1]])].shape)
 
         yield (np.hstack([splits[p][1] for p in ps[0]]),
                np.hstack([splits[p][1] for p in ps[1]]))
