@@ -129,18 +129,14 @@ class Shortfall(ClassifierBaseScoreType):
 # Scores Types to print
 
 score_types = [
-        
-    #Recall(name='mae', precision=2)
-    #Precision(name='mae', precision=2)
-    #F1_score w_FScore(),
+
+    Shortfall()
     Recall(label='Failure'),
     Recall(label='Success'),
     Recall(label='Higher Success'),
     Precision(label='Failure'),
     Precision(label='Success'),
-    Precision(label='Higher Success'),
-    Shortfall()
-
+    Precision(label='Higher Success')
 ]
         
 ############# Cross Validation function used in the workflow #############
@@ -155,9 +151,9 @@ def get_cv(X, y):
     
     # get all combinaison of folds
     combinaison = list(itertools.permutations([i for i in range(n_splits)]))
-    combinaison = [tuple(sorted(l[:int(n_splits*0.667)])+sorted(l[int(n_splits*0.667):])) for l in combinaison]
+    combinaison = [tuple(sorted(l[:int(n_splits * 0.8)])+sorted(l[int(n_splits * 0.8):])) for l in combinaison]
     combinaison = list(set(combinaison))
-    combinaison = [(l[:int(n_splits*0.667)], l[int(n_splits*0.667):]) for l in combinaison]
+    combinaison = [(l[:int(n_splits * 0.8)], l[int(n_splits * 0.8):]) for l in combinaison]
     for ps in combinaison[:k]:
 
         yield (np.hstack([splits[p][1] for p in ps[0]]),
