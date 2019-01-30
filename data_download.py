@@ -15,12 +15,14 @@ The file_ids must refer to files with 'public' option in 'share' parameter
 """
 
 data_and_labels = [ 'data_train.csv', 'data_test.csv',
-                    'labels_train.csv', 'labels_test.csv']
+                    'labels_train.csv', 'labels_test.csv',
+                    'full_data.csv']
 
 dic_ids = {'data_train.csv': '1FBYmIGguFp3fXo6eiMNBMXLHGaLlXydQ',
-           'data_test.csv':'1qwnQ-X6oSMaRRsjf-9E5j7eGMaeAxcha',
-           'labels_train.csv':'1SNnnBNi_hpyMBXCX742BfYtvqE8ANe1T',
-           'labels_test.csv':'1j07uF2EP67bvjNbWCA1EzFAw0vZBNoW9'}
+           'data_test.csv': '1qwnQ-X6oSMaRRsjf-9E5j7eGMaeAxcha',
+           'labels_train.csv': '1SNnnBNi_hpyMBXCX742BfYtvqE8ANe1T',
+           'labels_test.csv': '1j07uF2EP67bvjNbWCA1EzFAw0vZBNoW9',
+           'full_data.csv': '1x32C5QfLnamLf-Nn3zRBfUY50c-3D_dg'}
 
 
 def main(output_dir='data'):
@@ -54,4 +56,3 @@ if __name__ == '__main__':
         print("Testing mode, not downloading any data.")
     else:
         main()
-        
