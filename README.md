@@ -1,15 +1,9 @@
-# kickstarter-project
+# DataCamp Business Case - Kickstarter - Predicting success of fundraising
 
+Crowdfunding is the practice of funding a project or venture by raising monetary contributions from many people. Today, most of crowdfunding happens online through various websites and Kickstarter is one of the world's largest crowdfunding platforms. Kickstarter is mainly focused on creativity-related projects, in particular in art, music and design. It helps creators to find the resources and support they need to make their projects come real. Kickstarter is a huge global community; 16 million people have brought their contribution to over 150,000 successful projects all over the world.
 
-First draft
+The platform is based on an all or nothing funding model: project creators choose a deadline and a minimum funding goal, and money is collected only if the project reaches its goal by the deadline. It is a kind of insurance contract. The funding goal is chosen by the project kicker at the beginning and cannot be changed once the project has been launched. Whenever a project reaches the stated goal, the platform takes a 5% fee on the total amount of money collected. When a project fails, the platform does not gain anything. Therefore, it is to the benefit of Kickstarter that most projects are successful in reaching their funding goal by the deadline. Unlike many other platforms for fundraising and investment, Kickstarter claims no ownership over the projects and the work they produce – their profit is entirely based on the 5% fee they receive in case of success.
 
-Kickstarter is the world largest crowdfunding platform, it focuses mainly on projects linked to creativity, arts, design …
+Our objective is therefore to increase the chances of success of the projects by finding the relevant characteristics that will make them most likely to meet the goal by the deadline.
 
-It uses an all or nothing funding model : money is collected only if the project reaches its goal. The funding goal is chosen by the project kicker at the beginning and cannot be changed once the project has been launched. Whenever a project reaches the stated goal, the platform takes a 5% fee on the total money collected. When a project fails, the platform does not gain anything. Therefore, Kickstarter a interet à ce que les projets réussissent à atteindre leur objectif.
-
-Being able to predict whether a project will reach a certain goal before its launch would then be very interesting for them. Mainly for the accompaniment of project kickers : To help project funders fix realistically the amount of money they can get. Find other ideas...
-
-To evaluate the impact of such an use case: the KPI we will use is the percentage of successful projects (that is to say project that reaches their goal).
-
-
-Pour améliorer la prédiction, Il aurait été intéressant d’avoir les descriptions des projets et des infos sur le lanceur de projets : sur ses anciens succès ...
+Authors : Hamza Filali Baba - Eulalie Formery - Damien Grasset - Alice Guichenez - Hugo Perrin
