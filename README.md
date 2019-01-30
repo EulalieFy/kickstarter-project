@@ -6,4 +6,10 @@ The platform is based on an all or nothing funding model: project creators choos
 
 Our objective is therefore to increase the chances of success of the projects by finding the relevant characteristics that will make them most likely to meet the goal by the deadline.
 
-Authors : Hamza Filali Baba - Eulalie Formery - Damien Grasset - Alice Guichenez - Hugo Perrin
+
+### To download the data :
+ ```cmd 
+ 
+ python data_download.py 
+ ```
+
