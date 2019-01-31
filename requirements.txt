@@ -13,4 +13,7 @@ gensim
 nltk
 string
 
+tqdm
+zipfile
+argparse
 googledrivedownloader
