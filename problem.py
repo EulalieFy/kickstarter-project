@@ -29,12 +29,12 @@ problem_title = 'KickStarter FundRaising  Classification'
 
 _prediction_label_names = [0, 1, 2]
 
-# A type (class) which will be used to create wrapper objects for y_pred
+# Multi-Class CLassification with labels defined above
 Predictions = rw.prediction_types.make_multiclass(
     label_names=_prediction_label_names)
 
 
-# An object implementing the workflow
+# Re-Definition of the Feature Extractor Object of the Workflow
 class FeatureExtractorClassifier(object):
     """
     Difference with the FeatureExtractorClassifier from ramp-workflow:
@@ -65,8 +65,6 @@ class FeatureExtractorClassifier(object):
             fe, X_df)
         y_proba = self.classifier_workflow.test_submission(clf, X_test_array)
         
-        #arr = X_df.index.values.astype('datetime64[m]').astype(int)
-        #y = np.hstack((arr[:, np.newaxis], y_proba))
         return y_proba
 
 
@@ -141,10 +139,8 @@ score_types = [
         
 ############# Cross Validation function used in the workflow #############
 def get_cv(X, y):
-    # using 5 folds as default
+    #  Default kfold split of 5 and 5 combinaison to use
     k = 5
-    # up to 10 fold cross-validation based on 5 splits, using two parts for
-    # testing in each fold
     n_splits = 5
     cv = KFold(n_splits=n_splits, shuffle=True)
     splits = list(cv.split(X, y))
