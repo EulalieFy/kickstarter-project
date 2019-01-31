@@ -130,7 +130,7 @@ class Shortfall(ClassifierBaseScoreType):
 
 score_types = [
 
-    Shortfall()
+    Shortfall(),
     Recall(label='Failure'),
     Recall(label='Success'),
     Recall(label='Higher Success'),
