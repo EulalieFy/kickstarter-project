@@ -12,15 +12,13 @@ Our objective is therefore to increase the chances of success of the projects by
 
 
 ### To download the data :
- ```cmd 
- 
+ ```html
  python data_download.py 
  ```
  
  Additionnaly, you can download as well a subset of 30 000 images and descriptions using the flags --images True or --descriptions True (or both). Remark : descriptions are quick to be downloaded (just a few minutes) whereas images can take a while (>1H)
  
-  ```cmd 
- 
+  ```html 
  python data_download.py --descriptions True --images True
  ```
 
