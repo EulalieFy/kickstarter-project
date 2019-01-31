@@ -1,3 +1,5 @@
+https://nbviewer.jupyter.org/github/EulalieFy/kickstarter-project/blob/master/Starting_kit.ipynb
+
 # DataCamp Business Case - Kickstarter - Predicting success of fundraising
 
 ### Hamza Filali Baba, Eulalie Formery, Damien Grasset, Alice Guichenez, Hugo Perrin

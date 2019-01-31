@@ -1,3 +1,5 @@
+
+
 import xgboost as xgb
 import numpy as np
 
@@ -12,10 +14,10 @@ class Classifier(BaseEstimator):
                                        learning_rate = 0.1,
                                        max_depth = 5, 
                                        alpha =10,
-                                       n_estimators = 50)
+                                       n_estimators = 50,
+                                       n_jobs=-1)
 
     def fit(self, X, y):
-        print('FIT', X.shape, y.shape)
         self.model.fit(X, y)
 
     def predict(self, X):
