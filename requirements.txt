@@ -1,4 +1,16 @@
 
+
 numpy 
 pandas
+datetime
+
+matplotlib
+
+sklearn
+xgboost
+
+gensim
+nltk
+string
+
 googledrivedownloader

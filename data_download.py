@@ -3,7 +3,6 @@
 # !pip install googledrivedownloader
 
 import os
-import progressbar
 
 from google_drive_downloader import GoogleDriveDownloader as gdd
 
