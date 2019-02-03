@@ -69,5 +69,5 @@ Once we merged all the dataframes, we select, clean a bit and process variables 
 - **objectif and Pledge funds** : goal, pledged, achieved (%), usd_pledged
 - **special treatment** : project_we_love (tag from KickStater's preferenced project)
 - **additional data** : image_available, description_available
- 
+  
 
